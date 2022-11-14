@@ -29,5 +29,4 @@ class Ride
   def times_ridden
     @rider_log.values.sum
   end
-  
 end

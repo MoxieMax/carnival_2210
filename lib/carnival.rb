@@ -11,7 +11,9 @@ class Carnival
   end
   
   def most_popular
-    #in ride, create a method to count total times ridden, 
+    rides.max_by do |ride|
+      ride.times_ridden
+    end
   end
   
   def most_profitable

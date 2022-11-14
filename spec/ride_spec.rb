@@ -78,5 +78,3 @@ RSpec.describe Ride do
     end
   end
 end
-
-# expect(ride).to eq()
