@@ -21,4 +21,8 @@ class Visitor
       false
     end
   end
+  
+  def spend(sum)
+    @spending_money -= sum
+  end
 end

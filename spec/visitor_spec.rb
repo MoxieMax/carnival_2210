@@ -28,6 +28,11 @@ RSpec.describe Visitor do
       expect(visitor3.tall_enough?(54)).to eq(true)
       expect(visitor1.tall_enough?(64)).to eq(false)
     end
+    
+    it '#spend_money subtracts from spending money' do
+      expect(visitor1.spend(5))
+      expect(visitor1.spending_money).to eq(5)
+    end
   end
 end
 
