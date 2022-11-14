@@ -74,6 +74,7 @@ RSpec.describe Carnival do
     end
     
     it '#most_popular can determine the ride that is ridden most frequently' do
+      binding.pry
       expect(carnival.most_popular).to eq(ride2)
     end
   end

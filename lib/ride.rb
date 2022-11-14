@@ -25,4 +25,9 @@ class Ride
       visitor.spend(@admission_fee)
     end
   end
+  
+  def times_ridden
+    @rider_log.values.sum
+  end
+  
 end

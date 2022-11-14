@@ -11,6 +11,7 @@ class Carnival
   end
   
   def most_popular
+    #in ride, create a method to count total times ridden, 
   end
   
   def most_profitable
