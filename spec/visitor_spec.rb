@@ -34,7 +34,7 @@ RSpec.describe Visitor do
       expect(visitor1.spending_money).to eq(5)
     end
     
-    it '#match_pref' do
+    it '#match_pref determines if a rider prefers an aspect of the tide' do
       visitor1.add_preference(:gentle)
       visitor1.add_preference(:water)
       expect(visitor1.match_pref?(:thrilling)).to eq(false)

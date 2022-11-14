@@ -40,7 +40,6 @@ RSpec.describe Ride do
       expect(ride1.excitement).to eq(:gentle)
       expect(ride1.total_revenue).to eq(0)
       expect(ride1.rider_log).to eq({})
-      # binding.pry
     end
     
     it '#board_rider places a visitor on a ride, updates #rider_log' do
