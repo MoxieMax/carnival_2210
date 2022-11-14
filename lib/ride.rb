@@ -18,9 +18,12 @@ class Ride
     if !rider_log.keys.include?(visitor)
       rider_log[visitor] = 1
       @total_revenue += (@admission_fee)
+      visitor.spend(@admission_fee)
+      # require 'pry';binding.pry
     else 
       rider_log[visitor] += 1
       @total_revenue += (@admission_fee)
+      visitor.spend(@admission_fee)
     end
   end
 end
