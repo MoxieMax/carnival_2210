@@ -49,5 +49,3 @@ RSpec.describe Visitor do
     end
   end
 end
-
-# expect(visitor).to eq()

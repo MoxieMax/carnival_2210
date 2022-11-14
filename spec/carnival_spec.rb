@@ -33,7 +33,7 @@ RSpec.describe Carnival do
     end
   end
   
-  describe 'iteration 3 functionality' do
+  describe 'iteration 3 - functionality' do
     before(:each) do
       visitor1.add_preference(:gentle)
       visitor2.add_preference(:gentle)
@@ -43,6 +43,14 @@ RSpec.describe Carnival do
       carnival.add_ride(ride1)
       carnival.add_ride(ride2)
       carnival.add_ride(ride3)
+      
+      3.times {ride1.board_rider(visitor1)}
+      2.times {ride1.board_rider(visitor2)}
+      
+      4.times {ride2.board_rider(visitor1)}
+      5.times {ride2.board_rider(visitor2)}
+      
+      5.times {ride3.board_rider(visitor3)}
     end
     
     it '#add_ride can add rides to carnival' do
@@ -50,36 +58,23 @@ RSpec.describe Carnival do
     end
     
     it '#most_popular can determine the most boarded ride' do
-      3.times {ride1.board_rider(visitor1)}
-      2.times {ride1.board_rider(visitor2)}
       expect(ride1.rider_log).to eq({visitor1 => 3, visitor2 => 2})
-      
-      4.times {ride2.board_rider(visitor1)}
-      5.times {ride2.board_rider(visitor2)}
       expect(ride2.rider_log).to eq({visitor1 => 4, visitor2 => 5})
-      
-      5.times {ride3.board_rider(visitor3)}
       expect(ride3.rider_log).to eq({visitor3 => 5})
       
       expect(carnival.most_profitable).to eq(ride2)
     end
     
     it '#total_revenue can determine the most boarded ride' do
-      3.times {ride1.board_rider(visitor1)}
-      2.times {ride1.board_rider(visitor2)}
       expect(ride1.total_revenue).to eq(5)
-      
-      4.times {ride2.board_rider(visitor1)}
-      5.times {ride2.board_rider(visitor2)}
       expect(ride2.total_revenue).to eq(45)
-      
-      
-      5.times {ride3.board_rider(visitor3)}
       expect(ride3.total_revenue).to eq(10)
       
       expect(carnival.total_revenue).to eq(60)
     end
+    
+    it '#most_popular can determine the ride that is ridden most frequently' do
+      expect(carnival.most_popular).to eq(ride2)
+    end
   end
 end
-
-# expect(carnival.).to eq()

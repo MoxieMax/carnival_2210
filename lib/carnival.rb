@@ -10,8 +10,8 @@ class Carnival
     rides << ride
   end
   
-  # def most_popular
-  # end
+  def most_popular
+  end
   
   def most_profitable
     rides.max_by do |ride|
