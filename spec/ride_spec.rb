@@ -43,11 +43,14 @@ RSpec.describe Ride do
       # binding.pry
     end
     
-    it '#board places a visitor on a ride, updates #rider_log' do
+    it '#board_rider places a visitor on a ride, updates #rider_log' do
       ride1.board_rider(visitor1)
-      ride1.board_rider(visitor2)
-      ride1.board_rider(visitor1)
+      expect(ride1.rider_log).to eq({visitor1 => 1})
       
+      ride1.board_rider(visitor2)
+      expect(ride1.rider_log).to eq({visitor1 => 1, visitor2 => 1})
+      
+      ride1.board_rider(visitor1)
       expect(ride1.rider_log).to eq({visitor1 => 2, visitor2 => 1})
     end
   end

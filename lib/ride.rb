@@ -15,6 +15,11 @@ class Ride
   end
   
   def board_rider(visitor)
-    # @rider_log = a
+    if !rider_log.keys.include?(visitor)
+      rider_log[visitor] = 1
+    else 
+      rider_log[visitor] += 1
+    end
   end
 end
+# require 'pry';binding.pry
