@@ -58,18 +58,22 @@ RSpec.describe Ride do
       expect(ride1.total_revenue).to eq(3)
     end
     
+    it '#rider_eligible? determines if a rider will ride' do
+      expect
+    end
+    
     it 'expanded testing of #board_rider' do
       ride3.board_rider(visitor1)
       ride3.board_rider(visitor2)
       ride3.board_rider(visitor3)
       
-      expect(visitor1.spending_money).to eq(8)
-      expect(visitor2.spending_money).to eq(3)
+      expect(visitor1.spending_money).to eq(10)
+      expect(visitor2.spending_money).to eq(5)
       expect(visitor3.spending_money).to eq(13)
       
-      expect(ride3.rider_log).to eq({visitor1 => 1, visitor2 => 1, visitor3 => 1})
+      expect(ride3.rider_log).to eq({visitor3 => 1})
       
-      expect(ride3.total_revenue).to eq(6)
+      expect(ride3.total_revenue).to eq(2)
     end
   end
 end

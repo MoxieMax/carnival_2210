@@ -33,6 +33,13 @@ RSpec.describe Visitor do
       expect(visitor1.spend(5))
       expect(visitor1.spending_money).to eq(5)
     end
+    
+    it '#match_pref' do
+      visitor1.add_preference(:gentle)
+      visitor1.add_preference(:water)
+      expect(visitor1.match_pref?(:thrilling)).to eq(false)
+      expect(visitor1.match_pref?(:gentle)).to eq(true)
+    end
   end
 end
 

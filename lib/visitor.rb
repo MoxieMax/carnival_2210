@@ -22,7 +22,20 @@ class Visitor
     end
   end
   
+  def match_pref?(preference)
+    if @preferences.include?(preference)
+      true
+    else 
+      false
+    end
+  end
+  
   def spend(sum)
     @spending_money -= sum
+  end
+  
+  def eligible?
+    
+    
   end
 end
