@@ -21,5 +21,9 @@ class Ride
       rider_log[visitor] += 1
     end
   end
+  
+  def total_revenue
+    
+  end
 end
 # require 'pry';binding.pry
