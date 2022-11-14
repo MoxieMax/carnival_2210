@@ -21,9 +21,9 @@ RSpec.describe Carnival do
                           excitement: :thrilling 
                         })}
   
-  let (:visitor1) {Visitor.new('Bruce', 54, '$10')}
-  let (:visitor2) {Visitor.new('Tucker', 36, '$5')}
-  let (:visitor3) {Visitor.new('Penny', 64, '$15')}
+  let (:visitor1) {Visitor.new('Bruce', 54, '$30')}
+  let (:visitor2) {Visitor.new('Tucker', 36, '$30')}
+  let (:visitor3) {Visitor.new('Penny', 64, '$30')}
   
   describe '#iteration 3 - initialize' do
     it '#initialize exists and has readable attributes' do
@@ -47,6 +47,21 @@ RSpec.describe Carnival do
     
     it '#add_ride can add rides to carnival' do
       expect(carnival.rides).to eq([ride1, ride2, ride3])
+    end
+    
+    it '#most_popular can determine the most boarded ride' do
+      3.times {ride1.board_rider(visitor1)}
+      2.times {ride1.board_rider(visitor2)}
+      expect(ride1.rider_log).to eq({visitor1 => 3, visitor2 => 2})
+      
+      4.times {ride2.board_rider(visitor1)}
+      5.times {ride2.board_rider(visitor2)}
+      expect(ride2.rider_log).to eq({visitor1 => 4, visitor2 => 5})
+      
+      5.times {ride3.board_rider(visitor3)}
+      expect(ride3.rider_log).to eq({visitor3 => 5})
+      
+      expect(carnival.most_profitable).to eq(ride2)
     end
   end
 end
