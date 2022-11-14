@@ -14,7 +14,9 @@ class Carnival
   # end
   
   def most_profitable
-
+    rides.max_by do |ride|
+      ride.total_revenue
+    end
   end
   # 
   # def total_revenue

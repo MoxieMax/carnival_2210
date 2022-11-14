@@ -63,6 +63,22 @@ RSpec.describe Carnival do
       
       expect(carnival.most_profitable).to eq(ride2)
     end
+    
+    it '#total_revenue can determine the most boarded ride' do
+      3.times {ride1.board_rider(visitor1)}
+      2.times {ride1.board_rider(visitor2)}
+      expect(ride1.total_revenue).to eq(5)
+      
+      4.times {ride2.board_rider(visitor1)}
+      5.times {ride2.board_rider(visitor2)}
+      expect(ride2.total_revenue).to eq(45)
+      
+      
+      5.times {ride3.board_rider(visitor3)}
+      expect(ride3.total_revenue).to eq(10)
+      
+      expect(carnival.total_revenue).to eq(60)
+    end
   end
 end
 
