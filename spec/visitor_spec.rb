@@ -21,6 +21,13 @@ RSpec.describe Visitor do
       visitor1.add_preference(:water)
       expect(visitor1.preferences).to eq([:gentle, :water])
     end
+    
+    it '#tall_enough determines if a visitor meets the height requirement to ride' do
+      expect(visitor1.tall_enough?(54)).to eq(true)
+      expect(visitor2.tall_enough?(54)).to eq(false)
+      expect(visitor3.tall_enough?(54)).to eq(true)
+      expect(visitor1.tall_enough?(64)).to eq(false)
+    end
   end
 end
 
