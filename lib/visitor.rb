@@ -35,7 +35,6 @@ class Visitor
   end
   
   def eligible?
-    
-    
+    match_pref && tall_enough
   end
 end

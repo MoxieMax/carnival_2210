@@ -59,7 +59,6 @@ RSpec.describe Ride do
     end
     
     it '#rider_eligible? determines if a rider will ride' do
-      expect
     end
     
     it 'expanded testing of #board_rider' do
