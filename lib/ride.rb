@@ -17,13 +17,11 @@ class Ride
   def board_rider(visitor)
     if !rider_log.keys.include?(visitor)
       rider_log[visitor] = 1
+      @total_revenue += (@admission_fee)
     else 
       rider_log[visitor] += 1
+      @total_revenue += (@admission_fee)
     end
-  end
-  
-  def total_revenue
-    
   end
 end
 # require 'pry';binding.pry
