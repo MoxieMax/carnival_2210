@@ -39,6 +39,13 @@ RSpec.describe Visitor do
       visitor1.add_preference(:water)
       expect(visitor1.match_pref?(:thrilling)).to eq(false)
       expect(visitor1.match_pref?(:gentle)).to eq(true)
+      expect(visitor1.match_pref?(:water)).to eq(true)
+    end
+    
+    it '#will_ride? determines if a visitor will ride' do
+      visitor1.add_preference(:gentle)
+      visitor1.add_preference(:water)
+      expect(visitor1.will_ride?(54, :gentle))
     end
   end
 end

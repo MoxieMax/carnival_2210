@@ -15,16 +15,14 @@ class Ride
   end
   
   def board_rider(visitor)
-    if visitor.tall_enough?(@min_height) && visitor.preferences.include?(@excitement)
+    if visitor.will_ride?(@excitement, @min_height) &&
       if !rider_log.keys.include?(visitor)
         rider_log[visitor] = 1
-        @total_revenue += (@admission_fee)
-        visitor.spend(@admission_fee)
       else 
         rider_log[visitor] += 1
-        @total_revenue += (@admission_fee)
-        visitor.spend(@admission_fee)
       end
+      @total_revenue += (@admission_fee)
+      visitor.spend(@admission_fee)
     end
   end
 end

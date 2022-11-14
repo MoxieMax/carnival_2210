@@ -34,7 +34,7 @@ class Visitor
     @spending_money -= sum
   end
   
-  def eligible?
-    match_pref && tall_enough
+  def will_ride?(pref, height)
+    match_pref?(pref) && tall_enough?(height)
   end
 end
